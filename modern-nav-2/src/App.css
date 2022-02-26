@@ -1,0 +1,136 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+.navigation {
+  position: relative;
+}
+
+.nav-icon {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #fff;
+  margin-top: 24px;
+  margin-left: 24px;
+  z-index: 500;
+}
+
+.nav-icon.active {
+  border-color: #fff;
+}
+
+.nav-icon.active:hover {
+  border-color: red;
+}
+
+.nav-icon:hover {
+  background-color: red;
+  border-color: red;
+}
+
+.nav-icon:hover .line {
+  background-color: #fff;
+}
+
+.line {
+  width: 25px;
+  height: 4px;
+  background-color: grey;
+  border-radius: 4px;
+  transform-origin: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.line-2 {
+  width: 20px;
+  margin-top: 2px;
+}
+
+.nav-icon.active .line-1 {
+  transform: rotate(-45deg);
+}
+
+.nav-icon.active .line-2 {
+  width: 25px;
+  margin-top: -4px;
+  transform: rotate(45deg);
+}
+
+.navigation__menu {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateY(-100%);
+  transition: transform 0.5s 0.5s ease-in-out;
+}
+
+.navigation__menu.active {
+  transition: transform 0.5s ease-in-out;
+  transform: translateY(0);
+}
+
+.navigation__menu ul li {
+  list-style: none;
+  margin-bottom: 24px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(-100%);
+}
+
+.navigation__menu.active ul li {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.navigation__menu.active ul li:hover {
+  color: red;
+}
+
+.navigation__menu ul li .nav-underline {
+  width: 0;
+  height: 3px;
+  background-color: red;
+  margin-top: 4px;
+  transition: width 0.5s ease-in-out;
+}
+
+.navigation__menu ul li:hover .nav-underline {
+  width: 120px;
+}
+
+/* animation in sequence */
+.navigation__menu ul li:nth-child(1) {
+  transition: all 0.5s 0.1s ease-in-out;
+}
+.navigation__menu ul li:nth-child(2) {
+  transition: all 0.5s 0.2s ease-in-out;
+}
+.navigation__menu ul li:nth-child(3) {
+  transition: all 0.5s 0.3s ease-in-out;
+}
+.navigation__menu ul li:nth-child(4) {
+  transition: all 0.5s 0.4s ease-in-out;
+}
